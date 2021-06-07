@@ -38,6 +38,20 @@ module.exports = {
           // attach the presets to the loader (most projects use .babelrc file instead)
           presets: ["@babel/preset-env", "@babel/preset-react"]
         }
+      },
+      // fonts
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        loader: 'file-loader',
+        options: { name: '[name].[ext]', outputPath: 'fonts/', }
+      },
+      // css
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   },
