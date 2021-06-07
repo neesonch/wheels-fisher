@@ -10,8 +10,9 @@ const CarListItem = (props) => {
 
   return (
     <Card className={classes.cardRoot}>
-      <Typography variant="h5">{car.[keys.NAME]}</Typography>
-      <div key={car.uid}>{car.[keys.STATUS]}</div>
+      <Typography variant="h5">{car[keys.NAME]}</Typography>
+      <Typography variant="subtitle2">{car[keys.VENDOR_NAME]}</Typography>
+      <Typography variant="body1">{car[keys.STATUS]} @ ${car[keys.ESTIMATED_TOTAL_AMOUNT]}</Typography>
     </Card>
   )
 }

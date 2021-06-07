@@ -6,11 +6,13 @@ export const getCarsFlatList = () => {
   localCarsData[0].VehAvailRSCore.VehVendorAvails.forEach(vendor => {
     vendor.VehAvails.forEach(vendorCar => {
       let car = {
-        "uid": cars.length, ...vendor.Vendor, ...vendorCar.TotalCharge, ...vendorCar.Vehicle, [keys.STATUS]: vendorCar.[keys.STATUS], [keys.NAME]: vendorCar.Vehicle.VehMakeModel[keys.NAME],
+        "uid": cars.length, [keys.VENDOR_NAME]: vendor.Vendor['@Name'], ...vendorCar.TotalCharge, ...vendorCar.Vehicle, [keys.STATUS]: vendorCar.[keys.STATUS], [keys.NAME]: vendorCar.Vehicle.VehMakeModel[keys.NAME],
       }
-      //console.log('vendorCar: ', vendorCar);  //DEBUG
+      console.log('car[keys.ESTIMATED_TOTAL_AMOUNT]', car[keys.ESTIMATED_TOTAL_AMOUNT]);  //DEBUG
       cars.push(car);
     });
   });
+  // default sort order is by price (low to high)
+  cars.sort((a, b) => a[keys.ESTIMATED_TOTAL_AMOUNT] - b[keys.ESTIMATED_TOTAL_AMOUNT])
   return cars;
 }
