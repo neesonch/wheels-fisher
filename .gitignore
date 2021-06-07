@@ -1,0 +1,10 @@
+*.log
+*.tmp
+*.tmp.js
+*package-lock*
+.vscode/
+node_modules
+
+*/node_modules
+bundle
+*/bundle
