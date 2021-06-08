@@ -11,14 +11,13 @@ const CarList = () => {
     //console.log('localCarsData: ', localCarsData[0].VehAvailRSCore); //DEBUG
     const carData = getCarsFlatList();
     setCars(carData);
-    console.log(carData);
+    //console.log(carData); //DEBUG
   }, []);
 
   console.log('test')
 
   return (
     <>
-      <div>This is the list of cars</div>
       { cars.length > 0 && cars.map(car => {
         return <CarListItem key={car.uid} car={car} />
       })}
