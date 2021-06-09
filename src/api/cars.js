@@ -1,6 +1,5 @@
-
-import * as keys from 'Constants/car-keys.js';
 const localCarsData = require('MockData/car-data.json');
+import * as keys from 'Constants/car-keys.js';
 
 export const getCarsFlatList = () => {
   const cars = []
