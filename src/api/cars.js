@@ -1,6 +1,7 @@
 const localCarsData = require('MockData/car-data.json');
 import * as keys from 'Constants/car-keys.js';
 
+// Unpack nested car data from data feed and return a flat list of cars
 export const getCarsFlatList = () => {
   const cars = []
   localCarsData[0].VehAvailRSCore.VehVendorAvails.forEach(vendor => {
@@ -12,8 +13,6 @@ export const getCarsFlatList = () => {
       cars.push(car);
     });
   });
-  // default sort order is by price (low to high)
-  cars.sort((a, b) => a[keys.ESTIMATED_TOTAL_AMOUNT] - b[keys.ESTIMATED_TOTAL_AMOUNT])
   return cars;
 }
 
@@ -23,11 +22,15 @@ export const getCarById = id => {
   return cars.find(car => car.uid === parsedId);
 }
 
-export const getSortedCars = (key, ascending = false) => {
+export const getSortedCars = (key) => {
   const cars = getCarsFlatList();
-  return ascending ?
-    cars.sort((a, b) => a[key] - b[key]) :
-    cars.sort((a, b) => b[key] - a[key])
+
+  // Check whether value to be compared can be cast to a number - slightly different sorting functions required because JS will evaluate '20' > '10' as true
+  const isNumericValue = cars.length && cars[0][key] && !isNaN(cars[0][key])
+  return isNumericValue ?
+    cars.sort((a, b) => b[key] - a[key]) :
+    cars.sort((a, b) => b[key] > a[key] ? 1 : -1)
+
 }
 
 export const getPickupAndReturnInfo = () => {

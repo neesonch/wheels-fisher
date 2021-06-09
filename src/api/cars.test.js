@@ -31,4 +31,5 @@ describe('Cars API', () => {
   it('getCarById should return undefined if no matching car is found', () => {
     expect(getCarById(999)).toBe(undefined);
   });
+
 });
