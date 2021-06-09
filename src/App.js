@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { Paper, Container } from '@material-ui/core';
 import TopBar from 'Components/TopBar';
 import CarList from 'Components/CarList';
 import SelectedCar from 'Components/SelectedCar';
@@ -12,16 +13,19 @@ import SelectedCar from 'Components/SelectedCar';
 
 const App = () => (
   <Router>
-    <TopBar />
-    <Switch>
-      <Route path="/car/:carId">
-        <SelectedCar />
-      </Route>
-      <Route path="/">
-        <CarList />
-      </Route>
-    </Switch>
-
+    <Paper>
+      <TopBar />
+      <Container maxWidth="md">
+        <Switch>
+          <Route path="/car/:carId">
+            <SelectedCar />
+          </Route>
+          <Route path="/">
+            <CarList />
+          </Route>
+        </Switch>
+      </Container>
+    </Paper>
   </Router>
 );
 
