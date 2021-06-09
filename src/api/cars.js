@@ -29,3 +29,7 @@ export const getSortedCars = (key, ascending = false) => {
     cars.sort((a, b) => a[key] - b[key]) :
     cars.sort((a, b) => b[key] - a[key])
 }
+
+export const getPickupAndReturnInfo = () => {
+  return localCarsData[0].VehAvailRSCore.VehRentalCore;
+}

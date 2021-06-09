@@ -15,7 +15,7 @@ const InfoChip = (props) => {
         <Typography className={classes.title} variant="subtitle2">{title}</Typography>
         <Typography className={classes.value}>{value}</Typography>
       </Paper>
-    </Grid >
+    </Grid>
   )
 }
 

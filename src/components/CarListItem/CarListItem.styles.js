@@ -5,4 +5,12 @@ export const useStyles = makeStyles({
     width: "80%",
     marginTop: "20px"
   },
+  cardImage: {
+    height: "200px",
+    objectFit: "contain",
+  },
+  viewCarButton: {
+    marginBottom: "5px",
+    marginTop: "5px"
+  }
 });

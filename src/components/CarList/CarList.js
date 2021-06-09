@@ -18,9 +18,9 @@ const CarList = () => {
   }, []);
 
   useEffect(() => {
-    console.log('SORT KEY: ', sortBy);
+    //console.log('SORT KEY: ', sortBy);  //DEBUG
     let sortedCars = getSortedCars(sortBy);
-    console.log('sortedCars: ', sortedCars);
+    //console.log('sortedCars: ', sortedCars); //DEBUG
     setCars(sortedCars);
   }, [sortBy]);
 
