@@ -21,8 +21,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.0",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@testing-library/react": "^11.2.7",
     "babel-loader": "^8.2.2",
     "eslint": "^7.28.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -31,6 +33,7 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "jest": "^27.0.4",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2",
@@ -39,5 +42,24 @@
   "scripts": {
     "start": "webpack serve --mode development --env development",
     "build": "webpack --mode=production"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "modulePaths": ["src"],
+    "moduleDirectories": ["node_modules"],
+    "moduleFileExtensions": ["js", "jsx", "json"],
+    "moduleNameMapper": {
+      "^@Components(.*)$": "<rootDir>/src/components/$1",
+      "^@Constants(.*)$": "<rootDir>/src/constants/$1",
+      "^@MockData(.*)$": "<rootDir>/mock-data/$1"
+    }
   }
 }

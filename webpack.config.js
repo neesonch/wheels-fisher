@@ -22,7 +22,7 @@ module.exports = {
   resolve: {
     alias: {
       Components: path.resolve(__dirname, 'src/components/'),
-      MockData: path.resolve(__dirname, 'src/mock-data/'),
+      MockData: path.resolve(__dirname, 'src/mockData/'),
       API: path.resolve(__dirname, 'src/api/'),
       Constants: path.resolve(__dirname, 'src/constants/'),
     },
