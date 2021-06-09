@@ -33,7 +33,11 @@ const CarListItem = (props) => {
           <InfoChip title="Status" value={car[keys.STATUS]} />
           <InfoChip title="Price" value={`$${car[keys.ESTIMATED_TOTAL_AMOUNT]}`} />
           <InfoChip title="Passengers" value={car[keys.PASSENGER_QUANTITY]} />
+          <InfoChip title="Transmission Type" value={car[keys.TRANSMISSION_TYPE]} />
+          <InfoChip title="Fuel Type" value={car[keys.FUEL_TYPE]} />
+          <InfoChip title="Air Conditioning" value={car[keys.AIR_CONDITIONING] === "true" ? "Yes" : "No"} />
           <InfoChip title="Doors" value={car[keys.DOOR_COUNT]} />
+          <InfoChip title="Baggage Capacity" value={car[keys.BAGGAGE_QUANTITY]} />
         </Grid>
         <Button className={classes.viewCarButton} variant="contained" onClick={() => handleCarSelection(car.uid)}>View car</Button>
       </Grid>

@@ -144,8 +144,8 @@
             {
               "@Status": "Available",
               "Vehicle": {
-                "@AirConditionInd": "true",
-                "@TransmissionType": "Automatic",
+                "@AirConditionInd": "false",
+                "@TransmissionType": "Manual",
                 "@FuelType": "Petrol",
                 "@DriveType": "Unspecified",
                 "@PassengerQuantity": "5",
@@ -167,7 +167,7 @@
             {
               "@Status": "Available",
               "Vehicle": {
-                "@AirConditionInd": "true",
+                "@AirConditionInd": "false",
                 "@TransmissionType": "Automatic",
                 "@FuelType": "Petrol",
                 "@DriveType": "Unspecified",
