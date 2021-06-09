@@ -22,3 +22,10 @@ export const getCarById = id => {
   const parsedId = parseInt(id);
   return cars.find(car => car.uid === parsedId);
 }
+
+export const getSortedCars = (key, ascending = false) => {
+  const cars = getCarsFlatList();
+  return ascending ?
+    cars.sort((a, b) => a[key] - b[key]) :
+    cars.sort((a, b) => b[key] - a[key])
+}
