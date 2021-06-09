@@ -1,7 +1,7 @@
 import React from 'react';
 import * as keys from 'Constants/car-keys.js';
 import { useHistory } from "react-router-dom";
-import { Card, Typography, Button, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
+import { Card, CardMedia, Typography, Button, Grid, Paper } from '@material-ui/core';
 import { useStyles } from './CarListItem.styles';
 
 import InfoChip from 'Components/InfoChip';
@@ -15,7 +15,7 @@ const CarListItem = (props) => {
   const handleCarSelection = (carId) => history.push(`/car/${carId}`);
 
   return (
-    <Card className={classes.cardRoot}>
+    <Card className={classes.cardRoot} variant="outlined">
       <Grid
         container
         direction="column"
@@ -23,6 +23,7 @@ const CarListItem = (props) => {
       >
         <Typography variant="h5">{car[keys.NAME]}</Typography>
         <Typography variant="subtitle2">{car[keys.VENDOR_NAME]}</Typography>
+        <CardMedia component="img" className={classes.cardImage} image={car.PictureURL} />
         <Grid
           container
           direction="row"
@@ -34,9 +35,9 @@ const CarListItem = (props) => {
           <InfoChip title="Passengers" value={car[keys.PASSENGER_QUANTITY]} />
           <InfoChip title="Doors" value={car[keys.DOOR_COUNT]} />
         </Grid>
-        <Button variant="contained" onClick={() => handleCarSelection(car.uid)}>View car</Button>
+        <Button className={classes.viewCarButton} variant="contained" onClick={() => handleCarSelection(car.uid)}>View car</Button>
       </Grid>
-    </Card >
+    </Card>
   )
 }
 
