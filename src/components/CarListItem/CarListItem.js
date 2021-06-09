@@ -8,7 +8,7 @@ import InfoChip from 'Components/InfoChip';
 
 const CarListItem = (props) => {
 
-  const { car } = props;
+  const { car, showBackButton } = props;
   const classes = useStyles();
   const history = useHistory();
 
@@ -39,7 +39,10 @@ const CarListItem = (props) => {
           <InfoChip title="Doors" value={car[keys.DOOR_COUNT]} />
           <InfoChip title="Baggage Capacity" value={car[keys.BAGGAGE_QUANTITY]} />
         </Grid>
-        <Button className={classes.viewCarButton} variant="contained" onClick={() => handleCarSelection(car.uid)}>View car</Button>
+        {showBackButton ?
+          <Button className={classes.viewCarButton} variant="contained" onClick={() => history.push('/')}>Back</Button> :
+          <Button className={classes.viewCarButton} variant="contained" onClick={() => handleCarSelection(car.uid)}>View car</Button>
+        }
       </Grid>
     </Card>
   )

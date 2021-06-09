@@ -15,7 +15,7 @@ const SelectedCar = () => {
   }, []);
 
   return (
-    car ? <CarListItem car={car} /> : null
+    car ? <CarListItem car={car} showBackButton={true} /> : null
   )
 }
 
