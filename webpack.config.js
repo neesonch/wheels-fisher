@@ -25,6 +25,7 @@ module.exports = {
       MockData: path.resolve(__dirname, 'src/mockData/'),
       API: path.resolve(__dirname, 'src/api/'),
       Constants: path.resolve(__dirname, 'src/constants/'),
+      Assets: path.resolve(__dirname, 'src/assets/'),
     },
   },
   module: {
@@ -46,6 +47,12 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|svg)$/,
         loader: 'file-loader',
         options: { name: '[name].[ext]', outputPath: 'fonts/', }
+      },
+      // images
+      {
+        test: /\.(png)$/,
+        loader: 'file-loader',
+        options: { name: '[name].[ext]', }
       },
       // css
       {
