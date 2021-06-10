@@ -17,7 +17,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     // the filename of the JS bundle will be bundle.js
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: './'
   },
   resolve: {
     alias: {
@@ -71,5 +71,8 @@ module.exports = {
     ]
   },
   // add a custom index.html as the template
-  plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') })]
+  plugins: [new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, 'src', 'index.html'),
+    favicon: path.resolve(__dirname, 'src/assets/hook-favicon.png')
+  })]
 };
