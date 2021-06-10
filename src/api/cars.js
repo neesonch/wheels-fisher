@@ -9,7 +9,6 @@ export const getCarsFlatList = () => {
       let car = {
         "uid": cars.length, [keys.VENDOR_NAME]: vendor.Vendor['@Name'], ...vendorCar.TotalCharge, ...vendorCar.Vehicle, [keys.STATUS]: vendorCar.[keys.STATUS], [keys.NAME]: vendorCar.Vehicle.VehMakeModel[keys.NAME],
       }
-      //console.log('vendorCar', vendorCar);  //DEBUG
       cars.push(car);
     });
   });

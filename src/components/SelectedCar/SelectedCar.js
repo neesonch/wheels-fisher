@@ -9,7 +9,6 @@ const SelectedCar = () => {
   const [car, setCar] = useState(null);
 
   useEffect(() => {
-    //console.log(getCarById(carId));  //DEBUG
     const selectedCar = getCarById(carId);
     setCar(selectedCar);
   }, []);

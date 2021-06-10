@@ -12,10 +12,12 @@
     "add": "^2.0.6",
     "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",
+    "husky": "^6.0.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
+    "source-map-loader": "^3.0.0",
     "style-loader": "^2.0.0",
     "yarn": "^1.22.10"
   },
@@ -41,8 +43,13 @@
   },
   "scripts": {
     "start": "webpack serve --mode development --env development",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "test": "jest"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    },
   "babel": {
     "env": {
       "test": {
@@ -53,9 +60,17 @@
     }
   },
   "jest": {
-    "modulePaths": ["src"],
-    "moduleDirectories": ["node_modules"],
-    "moduleFileExtensions": ["js", "jsx", "json"],
+    "modulePaths": [
+      "src"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
     "moduleNameMapper": {
       "^@Components(.*)$": "<rootDir>/src/components/$1",
       "^@Constants(.*)$": "<rootDir>/src/constants/$1",
