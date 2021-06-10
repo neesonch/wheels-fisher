@@ -48,7 +48,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm test"
+      "pre-push": "yarn test"
     },
   "babel": {
     "env": {
