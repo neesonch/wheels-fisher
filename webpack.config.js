@@ -54,7 +54,13 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
-      }
+      },
+      // Enable source mapping for node modules
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
     ]
   },
   // add a custom index.html as the template

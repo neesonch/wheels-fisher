@@ -14,16 +14,12 @@ const CarList = () => {
   const [groupByVendor, setGroupByVendor] = useState(false);
 
   useEffect(() => {
-    //console.log('localCarsData: ', localCarsData[0].VehAvailRSCore); //DEBUG
     const carData = getCarsFlatList();
     setCars(carData);
-    //console.log(carData); //DEBUG
   }, []);
 
   useEffect(() => {
-    //console.log('SORT KEY: ', sortBy);  //DEBUG
     let sortedCars = getSortedCars(sortBy);
-    console.log('sortedCars: ', sortedCars); //DEBUG
     setCars(sortedCars);
   }, [sortBy]);
 
