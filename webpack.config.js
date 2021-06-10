@@ -17,7 +17,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     // the filename of the JS bundle will be bundle.js
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: './'
   },
   resolve: {
     alias: {
@@ -25,6 +25,7 @@ module.exports = {
       MockData: path.resolve(__dirname, 'src/mockData/'),
       API: path.resolve(__dirname, 'src/api/'),
       Constants: path.resolve(__dirname, 'src/constants/'),
+      Assets: path.resolve(__dirname, 'src/assets/'),
     },
   },
   module: {
@@ -47,6 +48,12 @@ module.exports = {
         loader: 'file-loader',
         options: { name: '[name].[ext]', outputPath: 'fonts/', }
       },
+      // images
+      {
+        test: /\.(png)$/,
+        loader: 'file-loader',
+        options: { name: '[name].[ext]', }
+      },
       // css
       {
         test: /\.css$/,
@@ -64,5 +71,8 @@ module.exports = {
     ]
   },
   // add a custom index.html as the template
-  plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') })]
+  plugins: [new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, 'src', 'index.html'),
+    favicon: path.resolve(__dirname, 'src/assets/hook-favicon.png')
+  })]
 };

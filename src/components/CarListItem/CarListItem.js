@@ -5,6 +5,7 @@ import { Card, CardMedia, Typography, Button, Grid, Paper } from '@material-ui/c
 import { useStyles } from './CarListItem.styles';
 
 import InfoChip from 'Components/InfoChip';
+import carIcon from 'Assets/car-icon.png'
 
 const CarListItem = (props) => {
 
@@ -23,7 +24,14 @@ const CarListItem = (props) => {
       >
         <Typography variant="h5">{car[keys.NAME]}</Typography>
         <Typography variant="subtitle2">{car[keys.VENDOR_NAME]}</Typography>
-        <CardMedia component="img" className={classes.cardImage} image={car.PictureURL} />
+        <CardMedia
+          component="img"
+          className={classes.cardImage}
+          image={car.PictureURL}
+          onError={e => {
+            // If image cannot be fetched, display fallback icon
+            e.target.src = carIcon;
+          }} />
         <Grid
           container
           direction="row"
